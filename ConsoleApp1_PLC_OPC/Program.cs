@@ -59,13 +59,13 @@ namespace ConsoleApp1_PLC_OPC
                 Console.WriteLine("Conectado al PLC S7-1200 por OPC UA.");
 
                 // 6Leer una variable 
-                ushort opcnamespace = 4;
+                ushort opcnamespace = 5;
                 ushort id = 5;
                 NodeId nodeId = new NodeId(id, opcnamespace);   //(identifier, namespaceIndex)
 
                 DataValue dv = session.ReadValue(nodeId);
 
-                Console.WriteLine($"Valor leído (ns=4;i=2): {dv.Value}");
+                Console.WriteLine($"Valor leído (ns={opcnamespace};i={id}): {dv.Value}");
 
 
                 session.Close();
